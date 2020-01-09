@@ -21,3 +21,6 @@ class answers(models.Model):
     third_choice = models.CharField(max_length = 200)
     fourth_choice = models.CharField(max_length = 200)
     correct_answer = models.CharField(max_length = 200, null=True)
+
+class scores(models.Model):
+    scores = models.CharField(max_length = 2)
