@@ -21,6 +21,7 @@ def index(request):
     # get related questions and pass to html template
     module_id = list(modules.objects.filter(module_name=context['module']['module_name']).values("id"))[0]['id']
     question = list(questions.objects.all().filter(questions_under_id=module_id))
+    random.shuffle(question)
     context['question'] = question
     print(context)
     #
