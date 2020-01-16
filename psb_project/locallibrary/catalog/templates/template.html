@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
 
     <link rel="stylesheet" href="psb_project/locallibrary/catalog/style.css">
     <title>PSB MCQ Project</title>
@@ -46,6 +48,7 @@
                 <p>
 
                 </p>
+                <form id = "my_radio_box" action="">
                 <div>
                     <div class="form-group">
                         {% for qn in question|slice:1 %}
@@ -70,7 +73,10 @@
                                         value="{{ans.correct_answer}}" onclick="">
                                     <label for="fourth">{{ans.fourth_choice}}</label>
                                     </input>
+                                    <div id = "right1" name = "right1"  hidden><span class="glyphicon glyphicon-ok"></span></div>
+                                    <div id = "wrong1" name = "wrong1" hidden><span id = "wrong" class="glyphicon glyphicon-remove"></span></div>
                                 </div>
+                                
                             </div>
                             {% endfor %}
                             {% endfor %}
@@ -103,6 +109,8 @@
                                         value="{{ans.correct_answer}}" onclick="">
                                     <label for="fourth">{{ans.fourth_choice}}</label>
                                     </input>
+                                    <div id = "right2" name = "right2"  hidden><span class="glyphicon glyphicon-ok"></span></div>
+                                    <div id = "wrong2" name = "wrong2" hidden><span class="glyphicon glyphicon-remove"></span></div>
                                 </div>
                             </div>
                             {% endfor %}
@@ -137,6 +145,8 @@
                                         value="{{ans.correct_answer}}" onclick="">
                                     <label for="fourth">{{ans.fourth_choice}}</label>
                                     </input>
+                                    <div id = "right3" name = "right3"  hidden><span class="glyphicon glyphicon-ok"></span></div>
+                                    <div id = "wrong3" name = "wrong3" hidden><span class="glyphicon glyphicon-remove"></span></div>
                                 </div>
                             </div>
                             {% endfor %}
@@ -171,6 +181,8 @@
                                         value="{{ans.correct_answer}}" onclick="">
                                     <label for="fourth">{{ans.fourth_choice}}</label>
                                     </input>
+                                    <div id = "right4" name = "right4"  hidden><span class="glyphicon glyphicon-ok"></span></div>
+                                    <div id = "wrong4" name = "wrong4" hidden><span class="glyphicon glyphicon-remove"></span></div>
                                 </div>
                             </div>
                             {% endfor %}
@@ -205,6 +217,8 @@
                                         value="{{ans.correct_answer}}" onclick="">
                                     <label for="fourth">{{ans.fourth_choice}}</label>
                                     </input>
+                                    <div id = "right5" name = "right5"  hidden><span class="glyphicon glyphicon-ok"></span></div>
+                                    <div id = "wrong5" name = "wrong5" hidden><span class="glyphicon glyphicon-remove"></span></div>
                                 </div>
                             </div>
                             {% endfor %}
@@ -239,6 +253,8 @@
                                         value="{{ans.correct_answer}}" onclick="">
                                     <label for="fourth">{{ans.fourth_choice}}</label>
                                     </input>
+                                    <div id = "right6" name = "right6"  hidden><span class="glyphicon glyphicon-ok"></span></div>
+                                    <div id = "wrong6" name = "wrong6" hidden><span class="glyphicon glyphicon-remove"></span></div>
                                 </div>
                             </div>
                             {% endfor %}
@@ -273,6 +289,8 @@
                                         value="{{ans.correct_answer}}" onclick="">
                                     <label for="fourth">{{ans.fourth_choice}}</label>
                                     </input>
+                                    <div id = "right7" name = "right7"  hidden><span class="glyphicon glyphicon-ok"></span></div>
+                                    <div id = "wrong7" name = "wrong7" hidden><span class="glyphicon glyphicon-remove"></span></div>
                                 </div>
                             </div>
                             {% endfor %}
@@ -307,6 +325,8 @@
                                         value="{{ans.correct_answer}}" onclick="">
                                     <label for="fourth">{{ans.fourth_choice}}</label>
                                     </input>
+                                    <div id = "right8" name = "right8"  hidden><span class="glyphicon glyphicon-ok"></span></div>
+                                    <div id = "wrong8" name = "wrong8" hidden><span class="glyphicon glyphicon-remove"></span></div>
                                 </div>
                             </div>
                             {% endfor %}
@@ -341,6 +361,8 @@
                                         value="{{ans.correct_answer}}" onclick="">
                                     <label for="fourth">{{ans.fourth_choice}}</label>
                                     </input>
+                                    <div id = "right9" name = "right9"  hidden><span class="glyphicon glyphicon-ok"></span></div>
+                                    <div id = "wrong9" name = "wrong9" hidden><span class="glyphicon glyphicon-remove"></span></div>
                                 </div>
                             </div>
                             {% endfor %}
@@ -375,6 +397,8 @@
                                         value="{{ans.correct_answer}}" onclick="">
                                     <label for="fourth">{{ans.fourth_choice}}</label>
                                     </input>
+                                    <div id = "right10" name = "right10"  hidden><span class="glyphicon glyphicon-ok"></span></div>
+                                    <div id = "wrong10" name = "wrong10" hidden><span class="glyphicon glyphicon-remove"></span></div>
                                 </div>
                             </div>
                             {% endfor %}
@@ -382,7 +406,7 @@
                             {% endfor %}
                         </div>
                     </div>
-
+                </form>
                     <div class="row" style="text-align: center;">
                         <div class="col">
                             <button class="btn btn-primary" onclick="refresh();">Reset</button>
@@ -461,7 +485,133 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
+    $('#my_radio_box').change(function(){
+        var number1 = document.getElementsByName('one');
+        var number2 = document.getElementsByName('two');
+        var number3 = document.getElementsByName('three');
+        var number4 = document.getElementsByName('four');
+        var number5 = document.getElementsByName('five');
+        var number6 = document.getElementsByName('six');
+        var number7 = document.getElementsByName('seven');
+        var number8 = document.getElementsByName('eight');
+        var number9 = document.getElementsByName('nine');
+        var number10 = document.getElementsByName('ten');
+        var len1 = number1.length
+        var len2 = number2.length
+        var len3 = number3.length
+        var len4 = number4.length
+        var len5 = number5.length
+        var len6 = number6.length
+        var len7 = number7.length
+        var len8 = number8.length
+        var len9 = number9.length
+        var len10 = number10.length
+        for (i = 0; i < len1; i++) {
+            if (number1[i].checked) {
+                if (number1[i].id == number1[i].value) {
+                    $('#right1').show();
+                    $('#wrong1').hide();
+                }
+                else{
+                    $('#right1').hide();
+                    $('#wrong1').show();
+                }
+            }
+            if (number2[i].checked) {
+                if (number2[i].id == number2[i].value) {
+                    $('#right2').show();
+                    $('#wrong2').hide();
+                }
+                else{
+                    $('#right2').hide();
+                    $('#wrong2').show();
+                }
+            }
+            if (number3[i].checked) {
+                if (number3[i].id == number3[i].value) {
+                    $('#right3').show();
+                    $('#wrong3').hide();
+                }
+                else{
+                    $('#right3').hide();
+                    $('#wrong3').show();
+                }
+            }
+            if (number4[i].checked) {
+                if (number4[i].id == number4[i].value) {
+                    $('#right4').show();
+                    $('#wrong4').hide();
+                }
+                else{
+                    $('#right4').hide();
+                    $('#wrong4').show();
+                }
+            }
+            if (number5[i].checked) {
+                if (number5[i].id == number5[i].value) {
+                    $('#right5').show();
+                    $('#wrong5').hide();
+                }
+                else{
+                    $('#right5').hide();
+                    $('#wrong5').show();
+                }
+            }
+            if (number6[i].checked) {
+                if (number6[i].id == number6[i].value) {
+                    $('#right6').show();
+                    $('#wrong6').hide();
+                }
+                else{
+                    $('#right6').hide();
+                    $('#wrong6').show();
+                }
+            }
+            if (number7[i].checked) {
+                if (number7[i].id == number7[i].value) {
+                    $('#right7').show();
+                    $('#wrong7').hide();
+                }
+                else{
+                    $('#right7').hide();
+                    $('#wrong7').show();
+                }
+            }
+            if (number8[i].checked) {
+                if (number8[i].id == number8[i].value) {
+                    $('#right8').show();
+                    $('#wrong8').hide();
+                }
+                else{
+                    $('#right8').hide();
+                    $('#wrong8').show();
+                }
+            }
+            if (number9[i].checked) {
+                if (number9[i].id == number9[i].value) {
+                    $('#right9').show();
+                    $('#wrong9').hide();
+                }
+                else{
+                    $('#right9').hide();
+                    $('#wrong9').show();
+                }
+            }
+            if (number10[i].checked) {
+                if (number10[i].id == number10[i].value) {
+                    $('#right10').show();
+                    $('#wrong10').hide();
+                }
+                else{
+                    $('#right10').hide();
+                    $('#wrong10').show();
+                }
+            }
+        }
+    });
     function refresh() {
         window.location.reload();
     }
