@@ -11,7 +11,14 @@
     <link rel="stylesheet" href="psb_project/locallibrary/catalog/style.css">
     <title>PSB MCQ Project</title>
     <style>
+        .container {
+            width: 600px;
+            margin: 0px auto;
+            background-color:sandybrown;
+            padding: 40px;
+            border-radius: 8px;
 
+        }
     </style>
 </head>
 <header style="height: 440px; overflow: hidden;">
@@ -25,417 +32,405 @@
             alt="PSB_logo" width="75" height="75" />
     </div>-->
 </header>
+<br>
+<body style="background-color:white;">
 
-
-<body>
-    <div class="card">
-        <div class="card-body">
-            <div class="container">
-                <div class="row">
-                    <div class="col-10 offset-1" style="margin-top : 3%">
-                        <div class="formHeader" style="text-align: center;">
-                            <h1 class="formHeader">Multiple choice quiz</h1>
-                        </div>
-                    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-10 offset-1" style="margin-top : 3%">
+                <div class="formHeader" style="text-align: center;">
+                    <h1 class="formHeader">Multiple choice quiz</h1>
                 </div>
-                <div class="row"></div>
-                <div class="row">
-                    <div class="form-group row">
-                        <h1 class="formHeader">Topic : {{module.module_name}}</h1>
+            </div>
+        </div>
+        <div class="row"></div>
+        <div class="row">
+            <div class="form-group row">
+                <h1 class="formHeader">Topic : {{module.module_name}}</h1>
+            </div>
+        </div>
+        <p>
+
+        </p>
+        <form id="my_radio_box" action="">
+            <div>
+                <div class="form-group">
+                    {% for qn in question|slice:1 %}
+                    <div class="row">
+                        <label for="myRadio">1) {{qn.question_name}}</label>
+                        {% for ans in answer|first %}
+                        <div>
+                            <div name="myRadioButtons" class="row">
+                                <input id="{{ans.first_choice}}" type="radio" name="one" value="{{ans.correct_answer}}"
+                                    onclick="">
+                                <label for="first">{{ans.first_choice}}</label>
+                                </input>
+                                <input id="{{ans.second_choice}}" type="radio" name="one" value="{{ans.correct_answer}}"
+                                    onclick="">
+                                <label for="second">{{ans.second_choice}}</label>
+                                </input>
+                                <input id="{{ans.third_choice}}" type="radio" name="one" value="{{ans.correct_answer}}"
+                                    onclick="">
+                                <label for="third">{{ans.third_choice}}</label>
+                                </input>
+                                <input id="{{ans.fourth_choice}}" type="radio" name="one" value="{{ans.correct_answer}}"
+                                    onclick="">
+                                <label for="fourth">{{ans.fourth_choice}}</label>
+                                </input>
+                                <div id="right1" name="right1" hidden><span class="glyphicon glyphicon-ok"></span></div>
+                                <div id="wrong1" name="wrong1" hidden><span id="wrong"
+                                        class="glyphicon glyphicon-remove"></span></div>
+                            </div>
+
+                        </div>
+                        {% endfor %}
+                        {% endfor %}
                     </div>
                 </div>
                 <p>
 
                 </p>
-                <form id="my_radio_box" action="">
-                    <div>
-                        <div class="form-group">
-                            {% for qn in question|slice:1 %}
-                            <div class="row">
-                                <label for="myRadio">1) {{qn.question_name}}</label>
-                                {% for ans in answer|first %}
-                                <div>
-                                    <div name="myRadioButtons" class="row">
-                                        <input id="{{ans.first_choice}}" type="radio" name="one"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="first">{{ans.first_choice}}</label>
-                                        </input>
-                                        <input id="{{ans.second_choice}}" type="radio" name="one"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="second">{{ans.second_choice}}</label>
-                                        </input>
-                                        <input id="{{ans.third_choice}}" type="radio" name="one"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="third">{{ans.third_choice}}</label>
-                                        </input>
-                                        <input id="{{ans.fourth_choice}}" type="radio" name="one"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="fourth">{{ans.fourth_choice}}</label>
-                                        </input>
-                                        <div id="right1" name="right1" hidden><span
-                                                class="glyphicon glyphicon-ok"></span></div>
-                                        <div id="wrong1" name="wrong1" hidden><span id="wrong"
-                                                class="glyphicon glyphicon-remove"></span></div>
-                                    </div>
-
+                <div class="form-group">
+                    {% for qn in question|slice:'1:2' %}
+                    <div class="row">
+                        <label for="myRadio">2) {{qn.question_name}}</label>
+                        {% for answers in answer|slice:'1:2' %}
+                        {% for ans in answers %}
+                        <div>
+                            <div name="myRadioButtons" class="row">
+                                <input id="{{ans.first_choice}}" type="radio" name="two" value="{{ans.correct_answer}}"
+                                    onclick="">
+                                <label for="first">{{ans.first_choice}}</label>
+                                </input>
+                                <input id="{{ans.second_choice}}" type="radio" name="two" value="{{ans.correct_answer}}"
+                                    onclick="">
+                                <label for="second">{{ans.second_choice}}</label>
+                                </input>
+                                <input id="{{ans.third_choice}}" type="radio" name="two" value="{{ans.correct_answer}}"
+                                    onclick="">
+                                <label for="third">{{ans.third_choice}}</label>
+                                </input>
+                                <input id="{{ans.fourth_choice}}" type="radio" name="two" value="{{ans.correct_answer}}"
+                                    onclick="">
+                                <label for="fourth">{{ans.fourth_choice}}</label>
+                                </input>
+                                <div id="right2" name="right2" hidden><span class="glyphicon glyphicon-ok"></span></div>
+                                <div id="wrong2" name="wrong2" hidden><span class="glyphicon glyphicon-remove"></span>
                                 </div>
-                                {% endfor %}
-                                {% endfor %}
                             </div>
                         </div>
-                        <p>
-
-                        </p>
-                        <div class="form-group">
-                            {% for qn in question|slice:'1:2' %}
-                            <div class="row">
-                                <label for="myRadio">2) {{qn.question_name}}</label>
-                                {% for answers in answer|slice:'1:2' %}
-                                {% for ans in answers %}
-                                <div>
-                                    <div name="myRadioButtons" class="row">
-                                        <input id="{{ans.first_choice}}" type="radio" name="two"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="first">{{ans.first_choice}}</label>
-                                        </input>
-                                        <input id="{{ans.second_choice}}" type="radio" name="two"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="second">{{ans.second_choice}}</label>
-                                        </input>
-                                        <input id="{{ans.third_choice}}" type="radio" name="two"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="third">{{ans.third_choice}}</label>
-                                        </input>
-                                        <input id="{{ans.fourth_choice}}" type="radio" name="two"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="fourth">{{ans.fourth_choice}}</label>
-                                        </input>
-                                        <div id="right2" name="right2" hidden><span
-                                                class="glyphicon glyphicon-ok"></span></div>
-                                        <div id="wrong2" name="wrong2" hidden><span
-                                                class="glyphicon glyphicon-remove"></span></div>
-                                    </div>
-                                </div>
-                                {% endfor %}
-                                {% endfor %}
-                                {% endfor %}
-                            </div>
-                        </div>
-                        <p>
-
-                        </p>
-                        <div class="form-group">
-                            {% for qn in question|slice:'2:3' %}
-                            <div class="row">
-                                <label for="myRadio">3) {{qn.question_name}}</label>
-                                {% for answers in answer|slice:'2:3' %}
-                                {% for ans in answers %}
-                                <div>
-                                    <div name="myRadioButtons" class="row">
-                                        <input id="{{ans.first_choice}}" type="radio" name="three"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="first">{{ans.first_choice}}</label>
-                                        </input>
-                                        <input id="{{ans.second_choice}}" type="radio" name="three"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="second">{{ans.second_choice}}</label>
-                                        </input>
-                                        <input id="{{ans.third_choice}}" type="radio" name="three"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="third">{{ans.third_choice}}</label>
-                                        </input>
-                                        <input id="{{ans.fourth_choice}}" type="radio" name="three"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="fourth">{{ans.fourth_choice}}</label>
-                                        </input>
-                                        <div id="right3" name="right3" hidden><span
-                                                class="glyphicon glyphicon-ok"></span></div>
-                                        <div id="wrong3" name="wrong3" hidden><span
-                                                class="glyphicon glyphicon-remove"></span></div>
-                                    </div>
-                                </div>
-                                {% endfor %}
-                                {% endfor %}
-                                {% endfor %}
-                            </div>
-                        </div>
-                        <p>
-
-                        </p>
-                        <div class="form-group">
-                            {% for qn in question|slice:'3:4' %}
-                            <div class="row">
-                                <label for="myRadio">4) {{qn.question_name}}</label>
-                                {% for answers in answer|slice:'3:4' %}
-                                {% for ans in answers %}
-                                <div>
-                                    <div name="myRadioButtons" class="row">
-                                        <input id="{{ans.first_choice}}" type="radio" name="four"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="first">{{ans.first_choice}}</label>
-                                        </input>
-                                        <input id="{{ans.second_choice}}" type="radio" name="four"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="second">{{ans.second_choice}}</label>
-                                        </input>
-                                        <input id="{{ans.third_choice}}" type="radio" name="four"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="third">{{ans.third_choice}}</label>
-                                        </input>
-                                        <input id="{{ans.fourth_choice}}" type="radio" name="four"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="fourth">{{ans.fourth_choice}}</label>
-                                        </input>
-                                        <div id="right4" name="right4" hidden><span
-                                                class="glyphicon glyphicon-ok"></span></div>
-                                        <div id="wrong4" name="wrong4" hidden><span
-                                                class="glyphicon glyphicon-remove"></span></div>
-                                    </div>
-                                </div>
-                                {% endfor %}
-                                {% endfor %}
-                                {% endfor %}
-                            </div>
-                        </div>
-                        <p>
-
-                        </p>
-                        <div class="form-group">
-                            {% for qn in question|slice:'4:5' %}
-                            <div class="row">
-                                <label for="myRadio">5) {{qn.question_name}}</label>
-                                {% for answers in answer|slice:'4:5' %}
-                                {% for ans in answers %}
-                                <div>
-                                    <div name="myRadioButtons" class="row">
-                                        <input id="{{ans.first_choice}}" type="radio" name="five"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="first">{{ans.first_choice}}</label>
-                                        </input>
-                                        <input id="{{ans.second_choice}}" type="radio" name="five"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="second">{{ans.second_choice}}</label>
-                                        </input>
-                                        <input id="{{ans.third_choice}}" type="radio" name="five"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="third">{{ans.third_choice}}</label>
-                                        </input>
-                                        <input id="{{ans.fourth_choice}}" type="radio" name="five"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="fourth">{{ans.fourth_choice}}</label>
-                                        </input>
-                                        <div id="right5" name="right5" hidden><span
-                                                class="glyphicon glyphicon-ok"></span></div>
-                                        <div id="wrong5" name="wrong5" hidden><span
-                                                class="glyphicon glyphicon-remove"></span></div>
-                                    </div>
-                                </div>
-                                {% endfor %}
-                                {% endfor %}
-                                {% endfor %}
-                            </div>
-                        </div>
-                        <p>
-
-                        </p>
-                        <div class="form-group">
-                            {% for qn in question|slice:'5:6' %}
-                            <div class="row">
-                                <label for="myRadio">6) {{qn.question_name}}</label>
-                                {% for answers in answer|slice:'5:6' %}
-                                {% for ans in answers %}
-                                <div>
-                                    <div name="myRadioButtons" class="row">
-                                        <input id="{{ans.first_choice}}" type="radio" name="six"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="first">{{ans.first_choice}}</label>
-                                        </input>
-                                        <input id="{{ans.second_choice}}" type="radio" name="six"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="second">{{ans.second_choice}}</label>
-                                        </input>
-                                        <input id="{{ans.third_choice}}" type="radio" name="six"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="third">{{ans.third_choice}}</label>
-                                        </input>
-                                        <input id="{{ans.fourth_choice}}" type="radio" name="six"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="fourth">{{ans.fourth_choice}}</label>
-                                        </input>
-                                        <div id="right6" name="right6" hidden><span
-                                                class="glyphicon glyphicon-ok"></span></div>
-                                        <div id="wrong6" name="wrong6" hidden><span
-                                                class="glyphicon glyphicon-remove"></span></div>
-                                    </div>
-                                </div>
-                                {% endfor %}
-                                {% endfor %}
-                                {% endfor %}
-                            </div>
-                        </div>
-                        <p>
-
-                        </p>
-                        <div class="form-group">
-                            {% for qn in question|slice:'6:7' %}
-                            <div class="row">
-                                <label for="myRadio">7) {{qn.question_name}}</label>
-                                {% for answers in answer|slice:'6:7' %}
-                                {% for ans in answers %}
-                                <div>
-                                    <div name="myRadioButtons" class="row">
-                                        <input id="{{ans.first_choice}}" type="radio" name="seven"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="first">{{ans.first_choice}}</label>
-                                        </input>
-                                        <input id="{{ans.second_choice}}" type="radio" name="seven"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="second">{{ans.second_choice}}</label>
-                                        </input>
-                                        <input id="{{ans.third_choice}}" type="radio" name="seven"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="third">{{ans.third_choice}}</label>
-                                        </input>
-                                        <input id="{{ans.fourth_choice}}" type="radio" name="seven"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="fourth">{{ans.fourth_choice}}</label>
-                                        </input>
-                                        <div id="right7" name="right7" hidden><span
-                                                class="glyphicon glyphicon-ok"></span></div>
-                                        <div id="wrong7" name="wrong7" hidden><span
-                                                class="glyphicon glyphicon-remove"></span></div>
-                                    </div>
-                                </div>
-                                {% endfor %}
-                                {% endfor %}
-                                {% endfor %}
-                            </div>
-                        </div>
-                        <p>
-
-                        </p>
-                        <div class="form-group">
-                            {% for qn in question|slice:'7:8' %}
-                            <div class="row">
-                                <label for="myRadio">8) {{qn.question_name}}</label>
-                                {% for answers in answer|slice:'7:8' %}
-                                {% for ans in answers %}
-                                <div>
-                                    <div name="myRadioButtons" class="row">
-                                        <input id="{{ans.first_choice}}" type="radio" name="eight"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="first">{{ans.first_choice}}</label>
-                                        </input>
-                                        <input id="{{ans.second_choice}}" type="radio" name="eight"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="second">{{ans.second_choice}}</label>
-                                        </input>
-                                        <input id="{{ans.third_choice}}" type="radio" name="eight"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="third">{{ans.third_choice}}</label>
-                                        </input>
-                                        <input id="{{ans.fourth_choice}}" type="radio" name="eight"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="fourth">{{ans.fourth_choice}}</label>
-                                        </input>
-                                        <div id="right8" name="right8" hidden><span
-                                                class="glyphicon glyphicon-ok"></span></div>
-                                        <div id="wrong8" name="wrong8" hidden><span
-                                                class="glyphicon glyphicon-remove"></span></div>
-                                    </div>
-                                </div>
-                                {% endfor %}
-                                {% endfor %}
-                                {% endfor %}
-                            </div>
-                        </div>
-                        <p>
-
-                        </p>
-                        <div class="form-group">
-                            {% for qn in question|slice:'8:9' %}
-                            <div class="row">
-                                <label for="myRadio">9) {{qn.question_name}}</label>
-                                {% for answers in answer|slice:'8:9' %}
-                                {% for ans in answers %}
-                                <div>
-                                    <div name="myRadioButtons" class="row">
-                                        <input id="{{ans.first_choice}}" type="radio" name="nine"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="first">{{ans.first_choice}}</label>
-                                        </input>
-                                        <input id="{{ans.second_choice}}" type="radio" name="nine"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="second">{{ans.second_choice}}</label>
-                                        </input>
-                                        <input id="{{ans.third_choice}}" type="radio" name="nine"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="third">{{ans.third_choice}}</label>
-                                        </input>
-                                        <input id="{{ans.fourth_choice}}" type="radio" name="nine"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="fourth">{{ans.fourth_choice}}</label>
-                                        </input>
-                                        <div id="right9" name="right9" hidden><span
-                                                class="glyphicon glyphicon-ok"></span></div>
-                                        <div id="wrong9" name="wrong9" hidden><span
-                                                class="glyphicon glyphicon-remove"></span></div>
-                                    </div>
-                                </div>
-                                {% endfor %}
-                                {% endfor %}
-                                {% endfor %}
-                            </div>
-                        </div>
-                        <p>
-
-                        </p>
-                        <div class="form-group">
-                            {% for qn in question|slice:'9:10' %}
-                            <div class="row">
-                                <label for="myRadio">10) {{qn.question_name}}</label>
-                                {% for answers in answer|slice:'9:10' %}
-                                {% for ans in answers %}
-                                <div>
-                                    <div name="myRadioButtons" class="row">
-                                        <input id="{{ans.first_choice}}" type="radio" name="ten"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="first">{{ans.first_choice}}</label>
-                                        </input>
-                                        <input id="{{ans.second_choice}}" type="radio" name="ten"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="second">{{ans.second_choice}}</label>
-                                        </input>
-                                        <input id="{{ans.third_choice}}" type="radio" name="ten"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="third">{{ans.third_choice}}</label>
-                                        </input>
-                                        <input id="{{ans.fourth_choice}}" type="radio" name="ten"
-                                            value="{{ans.correct_answer}}" onclick="">
-                                        <label for="fourth">{{ans.fourth_choice}}</label>
-                                        </input>
-                                        <div id="right10" name="right10" hidden><span
-                                                class="glyphicon glyphicon-ok"></span></div>
-                                        <div id="wrong10" name="wrong10" hidden><span
-                                                class="glyphicon glyphicon-remove"></span></div>
-                                    </div>
-                                </div>
-                                {% endfor %}
-                                {% endfor %}
-                                {% endfor %}
-                            </div>
-                        </div>
-                </form>
-                <div class="row" style="text-align: center;">
-                    <div class="col">
-                        <button class="btn btn-primary" onclick="refresh();">Reset</button>
-                        <button class="btn btn-primary" onclick="check();">Submit</button>
+                        {% endfor %}
+                        {% endfor %}
+                        {% endfor %}
                     </div>
                 </div>
+                <p>
+
+                </p>
+                <div class="form-group">
+                    {% for qn in question|slice:'2:3' %}
+                    <div class="row">
+                        <label for="myRadio">3) {{qn.question_name}}</label>
+                        {% for answers in answer|slice:'2:3' %}
+                        {% for ans in answers %}
+                        <div>
+                            <div name="myRadioButtons" class="row">
+                                <input id="{{ans.first_choice}}" type="radio" name="three"
+                                    value="{{ans.correct_answer}}" onclick="">
+                                <label for="first">{{ans.first_choice}}</label>
+                                </input>
+                                <input id="{{ans.second_choice}}" type="radio" name="three"
+                                    value="{{ans.correct_answer}}" onclick="">
+                                <label for="second">{{ans.second_choice}}</label>
+                                </input>
+                                <input id="{{ans.third_choice}}" type="radio" name="three"
+                                    value="{{ans.correct_answer}}" onclick="">
+                                <label for="third">{{ans.third_choice}}</label>
+                                </input>
+                                <input id="{{ans.fourth_choice}}" type="radio" name="three"
+                                    value="{{ans.correct_answer}}" onclick="">
+                                <label for="fourth">{{ans.fourth_choice}}</label>
+                                </input>
+                                <div id="right3" name="right3" hidden><span class="glyphicon glyphicon-ok"></span></div>
+                                <div id="wrong3" name="wrong3" hidden><span class="glyphicon glyphicon-remove"></span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <p>
+
+                </p>
+                <div class="form-group">
+                    {% for qn in question|slice:'3:4' %}
+                    <div class="row">
+                        <label for="myRadio">4) {{qn.question_name}}</label>
+                        {% for answers in answer|slice:'3:4' %}
+                        {% for ans in answers %}
+                        <div>
+                            <div name="myRadioButtons" class="row">
+                                <input id="{{ans.first_choice}}" type="radio" name="four" value="{{ans.correct_answer}}"
+                                    onclick="">
+                                <label for="first">{{ans.first_choice}}</label>
+                                </input>
+                                <input id="{{ans.second_choice}}" type="radio" name="four"
+                                    value="{{ans.correct_answer}}" onclick="">
+                                <label for="second">{{ans.second_choice}}</label>
+                                </input>
+                                <input id="{{ans.third_choice}}" type="radio" name="four" value="{{ans.correct_answer}}"
+                                    onclick="">
+                                <label for="third">{{ans.third_choice}}</label>
+                                </input>
+                                <input id="{{ans.fourth_choice}}" type="radio" name="four"
+                                    value="{{ans.correct_answer}}" onclick="">
+                                <label for="fourth">{{ans.fourth_choice}}</label>
+                                </input>
+                                <div id="right4" name="right4" hidden><span class="glyphicon glyphicon-ok"></span></div>
+                                <div id="wrong4" name="wrong4" hidden><span class="glyphicon glyphicon-remove"></span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <p>
+
+                </p>
+                <div class="form-group">
+                    {% for qn in question|slice:'4:5' %}
+                    <div class="row">
+                        <label for="myRadio">5) {{qn.question_name}}</label>
+                        {% for answers in answer|slice:'4:5' %}
+                        {% for ans in answers %}
+                        <div>
+                            <div name="myRadioButtons" class="row">
+                                <input id="{{ans.first_choice}}" type="radio" name="five" value="{{ans.correct_answer}}"
+                                    onclick="">
+                                <label for="first">{{ans.first_choice}}</label>
+                                </input>
+                                <input id="{{ans.second_choice}}" type="radio" name="five"
+                                    value="{{ans.correct_answer}}" onclick="">
+                                <label for="second">{{ans.second_choice}}</label>
+                                </input>
+                                <input id="{{ans.third_choice}}" type="radio" name="five" value="{{ans.correct_answer}}"
+                                    onclick="">
+                                <label for="third">{{ans.third_choice}}</label>
+                                </input>
+                                <input id="{{ans.fourth_choice}}" type="radio" name="five"
+                                    value="{{ans.correct_answer}}" onclick="">
+                                <label for="fourth">{{ans.fourth_choice}}</label>
+                                </input>
+                                <div id="right5" name="right5" hidden><span class="glyphicon glyphicon-ok"></span></div>
+                                <div id="wrong5" name="wrong5" hidden><span class="glyphicon glyphicon-remove"></span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <p>
+
+                </p>
+                <div class="form-group">
+                    {% for qn in question|slice:'5:6' %}
+                    <div class="row">
+                        <label for="myRadio">6) {{qn.question_name}}</label>
+                        {% for answers in answer|slice:'5:6' %}
+                        {% for ans in answers %}
+                        <div>
+                            <div name="myRadioButtons" class="row">
+                                <input id="{{ans.first_choice}}" type="radio" name="six" value="{{ans.correct_answer}}"
+                                    onclick="">
+                                <label for="first">{{ans.first_choice}}</label>
+                                </input>
+                                <input id="{{ans.second_choice}}" type="radio" name="six" value="{{ans.correct_answer}}"
+                                    onclick="">
+                                <label for="second">{{ans.second_choice}}</label>
+                                </input>
+                                <input id="{{ans.third_choice}}" type="radio" name="six" value="{{ans.correct_answer}}"
+                                    onclick="">
+                                <label for="third">{{ans.third_choice}}</label>
+                                </input>
+                                <input id="{{ans.fourth_choice}}" type="radio" name="six" value="{{ans.correct_answer}}"
+                                    onclick="">
+                                <label for="fourth">{{ans.fourth_choice}}</label>
+                                </input>
+                                <div id="right6" name="right6" hidden><span class="glyphicon glyphicon-ok"></span></div>
+                                <div id="wrong6" name="wrong6" hidden><span class="glyphicon glyphicon-remove"></span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <p>
+
+                </p>
+                <div class="form-group">
+                    {% for qn in question|slice:'6:7' %}
+                    <div class="row">
+                        <label for="myRadio">7) {{qn.question_name}}</label>
+                        {% for answers in answer|slice:'6:7' %}
+                        {% for ans in answers %}
+                        <div>
+                            <div name="myRadioButtons" class="row">
+                                <input id="{{ans.first_choice}}" type="radio" name="seven"
+                                    value="{{ans.correct_answer}}" onclick="">
+                                <label for="first">{{ans.first_choice}}</label>
+                                </input>
+                                <input id="{{ans.second_choice}}" type="radio" name="seven"
+                                    value="{{ans.correct_answer}}" onclick="">
+                                <label for="second">{{ans.second_choice}}</label>
+                                </input>
+                                <input id="{{ans.third_choice}}" type="radio" name="seven"
+                                    value="{{ans.correct_answer}}" onclick="">
+                                <label for="third">{{ans.third_choice}}</label>
+                                </input>
+                                <input id="{{ans.fourth_choice}}" type="radio" name="seven"
+                                    value="{{ans.correct_answer}}" onclick="">
+                                <label for="fourth">{{ans.fourth_choice}}</label>
+                                </input>
+                                <div id="right7" name="right7" hidden><span class="glyphicon glyphicon-ok"></span></div>
+                                <div id="wrong7" name="wrong7" hidden><span class="glyphicon glyphicon-remove"></span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <p>
+
+                </p>
+                <div class="form-group">
+                    {% for qn in question|slice:'7:8' %}
+                    <div class="row">
+                        <label for="myRadio">8) {{qn.question_name}}</label>
+                        {% for answers in answer|slice:'7:8' %}
+                        {% for ans in answers %}
+                        <div>
+                            <div name="myRadioButtons" class="row">
+                                <input id="{{ans.first_choice}}" type="radio" name="eight"
+                                    value="{{ans.correct_answer}}" onclick="">
+                                <label for="first">{{ans.first_choice}}</label>
+                                </input>
+                                <input id="{{ans.second_choice}}" type="radio" name="eight"
+                                    value="{{ans.correct_answer}}" onclick="">
+                                <label for="second">{{ans.second_choice}}</label>
+                                </input>
+                                <input id="{{ans.third_choice}}" type="radio" name="eight"
+                                    value="{{ans.correct_answer}}" onclick="">
+                                <label for="third">{{ans.third_choice}}</label>
+                                </input>
+                                <input id="{{ans.fourth_choice}}" type="radio" name="eight"
+                                    value="{{ans.correct_answer}}" onclick="">
+                                <label for="fourth">{{ans.fourth_choice}}</label>
+                                </input>
+                                <div id="right8" name="right8" hidden><span class="glyphicon glyphicon-ok"></span></div>
+                                <div id="wrong8" name="wrong8" hidden><span class="glyphicon glyphicon-remove"></span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <p>
+
+                </p>
+                <div class="form-group">
+                    {% for qn in question|slice:'8:9' %}
+                    <div class="row">
+                        <label for="myRadio">9) {{qn.question_name}}</label>
+                        {% for answers in answer|slice:'8:9' %}
+                        {% for ans in answers %}
+                        <div>
+                            <div name="myRadioButtons" class="row">
+                                <input id="{{ans.first_choice}}" type="radio" name="nine" value="{{ans.correct_answer}}"
+                                    onclick="">
+                                <label for="first">{{ans.first_choice}}</label>
+                                </input>
+                                <input id="{{ans.second_choice}}" type="radio" name="nine"
+                                    value="{{ans.correct_answer}}" onclick="">
+                                <label for="second">{{ans.second_choice}}</label>
+                                </input>
+                                <input id="{{ans.third_choice}}" type="radio" name="nine" value="{{ans.correct_answer}}"
+                                    onclick="">
+                                <label for="third">{{ans.third_choice}}</label>
+                                </input>
+                                <input id="{{ans.fourth_choice}}" type="radio" name="nine"
+                                    value="{{ans.correct_answer}}" onclick="">
+                                <label for="fourth">{{ans.fourth_choice}}</label>
+                                </input>
+                                <div id="right9" name="right9" hidden><span class="glyphicon glyphicon-ok"></span></div>
+                                <div id="wrong9" name="wrong9" hidden><span class="glyphicon glyphicon-remove"></span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <p>
+
+                </p>
+                <div class="form-group">
+                    {% for qn in question|slice:'9:10' %}
+                    <div class="row">
+                        <label for="myRadio">10) {{qn.question_name}}</label>
+                        {% for answers in answer|slice:'9:10' %}
+                        {% for ans in answers %}
+                        <div>
+                            <div name="myRadioButtons" class="row">
+                                <input id="{{ans.first_choice}}" type="radio" name="ten" value="{{ans.correct_answer}}"
+                                    onclick="">
+                                <label for="first">{{ans.first_choice}}</label>
+                                </input>
+                                <input id="{{ans.second_choice}}" type="radio" name="ten" value="{{ans.correct_answer}}"
+                                    onclick="">
+                                <label for="second">{{ans.second_choice}}</label>
+                                </input>
+                                <input id="{{ans.third_choice}}" type="radio" name="ten" value="{{ans.correct_answer}}"
+                                    onclick="">
+                                <label for="third">{{ans.third_choice}}</label>
+                                </input>
+                                <input id="{{ans.fourth_choice}}" type="radio" name="ten" value="{{ans.correct_answer}}"
+                                    onclick="">
+                                <label for="fourth">{{ans.fourth_choice}}</label>
+                                </input>
+                                <div id="right10" name="right10" hidden><span class="glyphicon glyphicon-ok"></span>
+                                </div>
+                                <div id="wrong10" name="wrong10" hidden><span class="glyphicon glyphicon-remove"></span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+        </form>
+        <div class="row" style="text-align: center;">
+            <div class="col">
+                <button class="btn btn-primary" onclick="refresh();">Reset</button>
+                <button class="btn btn-primary" onclick="check();">Submit</button>
             </div>
         </div>
     </div>
     </div>
+
 </body>
 
 <footer class="page-footer font-small blue pt-4">
