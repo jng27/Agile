@@ -23,4 +23,5 @@ class answers(models.Model):
     correct_answer = models.CharField(max_length = 200, null=True)
 
 class scores(models.Model):
+    gameId = models.CharField(max_length = 10)
     scores = models.CharField(max_length = 2)
