@@ -43,15 +43,15 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <button type="button" id="modalButton1" class="close" data-dismiss="modal" disabled>&times;</button>
                         <h4 class="modal-title">Stay anonoymous, no log in required</h4>
                     </div>
                     <div class="modal-body">
                         <input type="text" id="getUsnamer" name="getUsnamer">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal"
-                            onclick="getUsername();">Submit</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" id="modalButton2"
+                            onclick="getUsername();" disabled>Submit</button>
                     </div>
                 </div>
 
@@ -527,6 +527,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
+
+    var score = 0;
+
     $(document).ready(function () {
         $('#myModal').modal().show();
     });
@@ -537,6 +540,15 @@
         $("#username").empty();
         $("#username").append(username)
     }
+
+    $('#getUsnamer').change(function (){
+        if($('#getUsnamer').val() == ""){
+            $('#modalButton2').prop("disabled", true);
+            $('#modalButton1').prop("disabled", true);
+        }
+        $('#modalButton1').prop("disabled", false);
+        $('#modalButton2').prop("disabled", false);
+    });
 
     $('#my_radio_box').change(function () {
         var number1 = document.getElementsByName('one');
@@ -666,7 +678,6 @@
         window.location.reload();
     }
     function check() {
-        var score = 0;
         var number1 = document.getElementsByName('one');
         var number2 = document.getElementsByName('two');
         var number3 = document.getElementsByName('three');
