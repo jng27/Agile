@@ -37,8 +37,11 @@ def index(request):
         related_choices.append(list(answers.objects.filter(answers_under_id=id)))
     context['answer'] = related_choices
     #print(context['answer'])
+    #
+    # get Id & scores and pass to html template
+    Scores = scores.objects.order_by('scores').reverse()
+    context['scores'] = Scores
     return HttpResponse(template.render(context,request))
-
 
 def newScore(request):
     print("SUCCESS : AJAX ENTERED!")

@@ -24,4 +24,4 @@ class answers(models.Model):
 
 class scores(models.Model):
     gameId = models.CharField(max_length = 100, null=True)
-    scores = models.CharField(max_length = 2, null=True)
+    scores = models.IntegerField(null=True)
