@@ -68,13 +68,13 @@
                         <input type="text" for="gameId" name="gameId" id="gameId" hidden>
                     </h1>
                     {% for s in scores|slice:'0:1' %}
-                        <font color="red">1. {{s.gameId }} with {{ s.scores}} score | </font>
+                        <font color="red">1st. {{s.gameId }} with {{ s.scores}} score | </font>
                     {% endfor %}
                     {% for s in scores|slice:'1:2' %}
-                        <font color="red">2. {{s.gameId }} with {{ s.scores}} score | </font>
+                        <font color="red">2nd. {{s.gameId }} with {{ s.scores}} score | </font>
                     {% endfor %}
                     {% for s in scores|slice:'2:3' %}
-                        <font color="red">3. {{s.gameId }} with {{ s.scores}} score</font>
+                        <font color="red">3rd. {{s.gameId }} with {{ s.scores}} score</font>
                     {% endfor %}
                 </div>
             </div>
