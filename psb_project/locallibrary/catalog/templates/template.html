@@ -68,13 +68,13 @@
                         <input type="text" for="gameId" name="gameId" id="gameId" hidden>
                     </h1>
                     {% for s in scores|slice:'0:1' %}
-                        <font color="red">1st. {{s.gameId }} with {{ s.scores}} score | </font>
+                    <font color="red">1st. {{s.gameId }} with {{ s.scores}} score | </font>
                     {% endfor %}
                     {% for s in scores|slice:'1:2' %}
-                        <font color="red">2nd. {{s.gameId }} with {{ s.scores}} score | </font>
+                    <font color="red">2nd. {{s.gameId }} with {{ s.scores}} score | </font>
                     {% endfor %}
                     {% for s in scores|slice:'2:3' %}
-                        <font color="red">3rd. {{s.gameId }} with {{ s.scores}} score</font>
+                    <font color="red">3rd. {{s.gameId }} with {{ s.scores}} score</font>
                     {% endfor %}
                 </div>
             </div>
@@ -597,6 +597,9 @@
         var len10 = number10.length
         for (i = 0; i < len1; i++) {
             if (number1[i].checked) {
+                for (e = 0; e < number1.length; e++) {
+                    number1[e].disabled = true;
+                }
                 if (number1[i].id == number1[i].value) {
                     $('#right1').show();
                     $('#wrong1').hide();
@@ -607,6 +610,9 @@
                 }
             }
             if (number2[i].checked) {
+                for (e = 0; e < number2.length; e++) {
+                    number2[e].disabled = true;
+                }
                 if (number2[i].id == number2[i].value) {
                     $('#right2').show();
                     $('#wrong2').hide();
@@ -617,6 +623,9 @@
                 }
             }
             if (number3[i].checked) {
+                for (e = 0; e < number3.length; e++) {
+                    number3[e].disabled = true;
+                }
                 if (number3[i].id == number3[i].value) {
                     $('#right3').show();
                     $('#wrong3').hide();
@@ -627,6 +636,9 @@
                 }
             }
             if (number4[i].checked) {
+                for (e = 0; e < number4.length; e++) {
+                    number4[e].disabled = true;
+                }
                 if (number4[i].id == number4[i].value) {
                     $('#right4').show();
                     $('#wrong4').hide();
@@ -637,6 +649,9 @@
                 }
             }
             if (number5[i].checked) {
+                for (e = 0; e < number5.length; e++) {
+                    number5[e].disabled = true;
+                }
                 if (number5[i].id == number5[i].value) {
                     $('#right5').show();
                     $('#wrong5').hide();
@@ -647,6 +662,9 @@
                 }
             }
             if (number6[i].checked) {
+                for (e = 0; e < number6.length; e++) {
+                    number6[e].disabled = true;
+                }
                 if (number6[i].id == number6[i].value) {
                     $('#right6').show();
                     $('#wrong6').hide();
@@ -657,6 +675,9 @@
                 }
             }
             if (number7[i].checked) {
+                for (e = 0; e < number7.length; e++) {
+                    number7[e].disabled = true;
+                }
                 if (number7[i].id == number7[i].value) {
                     $('#right7').show();
                     $('#wrong7').hide();
@@ -667,6 +688,9 @@
                 }
             }
             if (number8[i].checked) {
+                for (e = 0; e < number8.length; e++) {
+                    number8[e].disabled = true;
+                }
                 if (number8[i].id == number8[i].value) {
                     $('#right8').show();
                     $('#wrong8').hide();
@@ -677,6 +701,9 @@
                 }
             }
             if (number9[i].checked) {
+                for (e = 0; e < number9.length; e++) {
+                    number9[e].disabled = true;
+                }
                 if (number9[i].id == number9[i].value) {
                     $('#right9').show();
                     $('#wrong9').hide();
@@ -687,6 +714,9 @@
                 }
             }
             if (number10[i].checked) {
+                for (e = 0; e < number10.length; e++) {
+                    number10[e].disabled = true;
+                }
                 if (number10[i].id == number10[i].value) {
                     $('#right10').show();
                     $('#wrong10').hide();
