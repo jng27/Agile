@@ -25,3 +25,4 @@ class answers(models.Model):
 class scores(models.Model):
     gameId = models.CharField(max_length = 100, null=True)
     scores = models.IntegerField(null=True)
+    score_under = models.ForeignKey(modules, on_delete=models.SET_NULL,null=True)
