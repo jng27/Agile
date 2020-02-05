@@ -38,7 +38,7 @@
     <!--MODAL starts here-->
     <div class="">
         <!-- Modal -->
-        <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal fade" id="myModal" role="dialog" data-backdrop="static" data-keyboard="false">
             <div class="modal-dialog">
                 <!-- Modal content-->
                 <div class="modal-content">
@@ -63,7 +63,6 @@
             <div class="col-10 offset-1" style="margin-top : 3%">
                 <div class="formHeader" style="text-align: center;">
                     <h1 class="formHeader">TOP 3 in leaderboard
-                        <label for="username" name="username" id="username"></label>
                         <input type="text" for="scores" name="scores" id="scores" hidden>
                         <input type="text" for="gameId" name="gameId" id="gameId" hidden>
                     </h1>
@@ -83,6 +82,7 @@
         <div class="row">
             <div class="form-group row">
                 <h1 class="formHeader">Topic : {{module.module_name}}</h1>
+               <h2>Challenger: <label for="username" name="username" id="username"></label></h2>
             </div>
         </div>
         <p>
@@ -504,7 +504,7 @@
                 </ul>
             </div>
             <div class="col-md-3 mb-md-0 mb-3">
-                <h5 class="text-uppercase">Contact Us</h5>
+                <h5 class="text-uppercase">Business Enquiries</h5>
                 <ul class="list-unstyled">
                     <li>
                         <img src="https://www.pngkey.com/png/full/270-2708937_gmail-icon-transparent-background-logo-email-fondo-transparente.png"
@@ -519,7 +519,7 @@
                 </ul>
             </div>
             <div class="col-md-3 mb-md-0 mb-3">
-                <h5 class="text-uppercase">Our Social Media</h5>
+                <h5 class="text-uppercase">My Social Media</h5>
                 <ul class="list-unstyled">
                     <li>
                         <a href="#"><i class="icon ion-social-instagram"></i></a>
@@ -553,6 +553,10 @@
         $('#myModal').modal().show();
         $('#modalButton2').prop("disabled", true);
         $('#modalButton1').prop("disabled", true);
+        $('#myModal').modal({
+            backdrop: 'static',
+            keyboard: false
+        })
     });
 
     function getUsername() {
@@ -571,6 +575,13 @@
         else {
             $('#modalButton1').prop("disabled", false);
             $('#modalButton2').prop("disabled", false);
+        }
+    });
+    $("#getUsnamer").on('keyup', function (e) {
+        if (e.keyCode === 13) { //enter key code
+            $('#modalButton1').prop("disabled", false);
+            $('#modalButton2').prop("disabled", false);
+            $('#modalButton2').click()
         }
     });
 
