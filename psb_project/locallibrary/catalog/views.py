@@ -14,12 +14,14 @@ def index(request):
     context = {}
     questions_id = []
     related_choices = []
+    ID = ""
+    name = ""
     # get all available modules and randomly pick one
     module = list(modules.objects.all().values('module_name'))
     randomed = [i for i in range(len(module))]
     random.shuffle(randomed)
     context['module'] = module[randomed[0]]
-    print(context)
+    #print(context)
     #
     # get related questions and pass to html template
     module_id = list(modules.objects.filter(module_name=context['module']['module_name']).values("id"))[0]['id']
@@ -39,7 +41,14 @@ def index(request):
     #print(context['answer'])
     #
     # get Id & scores and pass to html template
-    Scores = scores.objects.order_by('scores').reverse()
+    name = module[randomed[0]]["module_name"]
+    print(name)
+    Id = modules.objects.filter(module_name=name).values('id')
+    for each in Id:
+        ID = each['id']
+    print(ID)
+    Scores = scores.objects.filter(score_under_id=ID).order_by('scores').reverse()
+    print(Scores)
     context['scores'] = Scores
     return HttpResponse(template.render(context,request))
 
