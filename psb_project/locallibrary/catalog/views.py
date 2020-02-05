@@ -19,7 +19,7 @@ def index(request):
     randomed = [i for i in range(len(module))]
     random.shuffle(randomed)
     context['module'] = module[randomed[0]]
-    #print(context)
+    print(context)
     #
     # get related questions and pass to html template
     module_id = list(modules.objects.filter(module_name=context['module']['module_name']).values("id"))[0]['id']
@@ -47,20 +47,20 @@ def newScore(request):
     print("SUCCESS : AJAX ENTERED!")
     template = loader.get_template('template.html')
     context = {}
-    #object1 = request.POST['gameId']
-    #object2 = request.POST['scores']
-    #print(object1)
-    #print(object2)
-    #new_object = scores(gameId=object1, scores=object2).save()
+    under_ID = ""
     if request.method == "POST" :
         # handle save logic
         if request.body:
             jsonLoad = json.loads(request.body)
             Scores = jsonLoad['scores']
             username = jsonLoad['username']
+            module = jsonLoad['module']
         else :
             return JsonResponse({"errors": ["POST object has insufficient parameters!"]})
-        errors = scores(scores=Scores, gameId=username)
+        ID = modules.objects.filter(module_name=module).values('id')
+        for each in ID:
+            under_ID = each['id']
+        errors = scores(scores=Scores, gameId=username, score_under_id=under_ID)
         errors.save()
     return HttpResponse(template.render(context,request))
     
